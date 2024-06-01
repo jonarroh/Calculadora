@@ -116,9 +116,15 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               TextField(
                 controller: TextEditingController(text: _visualOperation),
-                style: TextStyle(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  fillColor: Colors.white,
+                  labelText: 'Resultado',
+                ),
+                style: const TextStyle(
                   fontSize: 50,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Colors.black,
                 ),
               ),
               Row(
@@ -126,13 +132,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   CalculadoraButton(text: '7', onPressed: (){
                     _setVisualOperation('7');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '8', onPressed: (){
                     _setVisualOperation('8');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '9', onPressed: (){
                     _setVisualOperation('9');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                 ],
               ),
               Row(
@@ -140,13 +149,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   CalculadoraButton(text: '4', onPressed: (){
                     _setVisualOperation('4');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '5', onPressed: (){
                     _setVisualOperation('5');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '6', onPressed: (){
                     _setVisualOperation('6');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                 ],
               ),
               Row(
@@ -154,17 +166,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   CalculadoraButton(text: '1', onPressed: (){
                     _setVisualOperation('1');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '2', onPressed: (){
                     _setVisualOperation('2');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '3', onPressed: (){
                     _setVisualOperation('3');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: "cls", onPressed: (){
                     _ResetVisualOperation();
 
-                  })
+                  },
+                    c:  Colors.deepPurpleAccent,)
                 ],
 
               ),
@@ -173,16 +189,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   CalculadoraButton(text: '0', onPressed: (){
                     _setVisualOperation('0');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '.', onPressed: (){
                     _setVisualOperation('.');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '=', onPressed: (){
                     _setResult();
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: "DEL", onPressed: (){
                     _DeleteLastVisualOperation();
-                  })
+                  },
+                    c:  Colors.deepPurpleAccent,)
                 ],
               ),
               Row(
@@ -191,19 +211,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   CalculadoraButton(text: '+', onPressed: (){
                     _setVisualOperation('+');
                     _setOperation('+');
-                  }),
+                  },
+                    c:  Colors.deepPurpleAccent,),
                   CalculadoraButton(text: '-', onPressed: (){
                     _setVisualOperation('-');
                     _setOperation('-');
-                  }),
+                  },
+                  c:  Colors.deepPurpleAccent,
+                  ),
                   CalculadoraButton(text: '*', onPressed: (){
                     _setVisualOperation('*');
                     _setOperation('*');
-                  }),
+                  },
+                  c: Colors.deepPurpleAccent,
+                  ),
                   CalculadoraButton(text: '/', onPressed: (){
                     _setVisualOperation('/');
                     _setOperation('/');
-                  }),
+                  },
+                  c: Colors.deepPurpleAccent,
+                  ),
                 ],
               ),
             ],
@@ -216,16 +243,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 class CalculadoraButton extends StatelessWidget {
-  const CalculadoraButton({super.key, required this.text, required this.onPressed});
+  const CalculadoraButton({super.key, required this.text, required this.onPressed, required this.c});
 
   final String text;
   final void Function() onPressed;
+  final Color c;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: c,
         borderRadius: BorderRadius.circular(10),
       ),
       child: SizedBox(
@@ -235,9 +263,9 @@ class CalculadoraButton extends StatelessWidget {
           onTap: onPressed,
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 30,
-              color: Theme.of(context).colorScheme.primary,
+              color: Colors.white,
             ),
           ),
         ),
